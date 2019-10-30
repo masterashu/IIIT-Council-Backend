@@ -75,6 +75,9 @@ docs/_build/
 # PyBuilder
 target/
 
+# IDE Settings
+.vscode/
+.idea/
 
 ### Django ###
 *.log
