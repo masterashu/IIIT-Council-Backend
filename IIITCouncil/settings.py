@@ -123,9 +123,11 @@ USE_TZ = True
 
 
 # Email Configuration (SMTP)
-EMAIL_BACKEND=os.getenv('EMAIL_BACKEND')
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+MAILGUN_API_KEY = os.getenv('MAILGUN_API_KEY')
+MAILGUN_BASE_URL = 'https://api.mailgun.net/v3/sandboxc39cd4fea2384d549aceafba02da9e7b.mailgun.org/messages'
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')

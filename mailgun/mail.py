@@ -12,3 +12,10 @@ def send_mail(subject, body, sender, to):
               'text': body
               })
 
+def send_mass_mail(*args):
+    for mail in args:
+        try:
+            subject, body, sender, to = mail
+            yield(send_mail(subject, body, sender, to))
+        except ValueError as e:
+            print("Not Enough Values provided, expected 4")
