@@ -76,7 +76,7 @@ For sending mail you can import send_mail, send_mass_mail from either `django.co
         ['to_person1@mail.com', 'to_person2@mail.com', ])
 
     # For sending multiple mails or mails with BCC
-    send_mass_mail(
+    x = send_mass_mail(
         (
             'Subject',
             'Mail Body',
@@ -90,4 +90,6 @@ For sending mail you can import send_mail, send_mass_mail from either `django.co
             ['to_person3@mail.com', 'to_person2@mail.com', ]
         ),
     )
+    for i in x:
+        print(i)
 ```
