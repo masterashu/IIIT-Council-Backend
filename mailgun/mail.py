@@ -3,7 +3,19 @@ from django.conf import settings
 
 
 def send_mail(subject, body, to, sender=settings.EMAIL_HOST_USER, fail_silently=True):
-    # Post a request to MailGun API, It will process it and mail it through it's system
+    """ 
+    Send a Single mail to one or more users  
+
+    Parameters:  \n
+        subject (str): Subject of the email
+        body (str): Body of the emal
+        to (list(str)): List of Recipients email address
+        from (str): (optional) The Address from which the mail is sent
+        
+    Returns: 
+        returns a response object
+    """
+  
     response = requests.post(
         settings.MAILGUN_BASE_URL,
         auth=('api', settings.MAILGUN_API_KEY),
@@ -20,6 +32,22 @@ def send_mail(subject, body, to, sender=settings.EMAIL_HOST_USER, fail_silently=
 
 
 def send_mass_mail(datatuples, fail_silently=True):
+    """ 
+    Send a Collection of mails
+
+    Parameters:\n
+        datatuple (tuple): A tuple of tuples having the following parameters in order
+
+    Format of datatuple element:\n
+        subject (str): Subject of the email
+        body (str): Body of the emal
+        to (list(str)): List of Recipients email address
+        from (str): (optional) The Address from which the mail is sent
+
+    Returns: 
+        returns a response object
+    """
+
     with requests.Session() as my_session:
         my_session.auth = ('api', settings.MAILGUN_API_KEY)
         for mail in datatuples:

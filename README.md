@@ -60,36 +60,34 @@ For sending mail you can import send_mail, send_mass_mail from either `django.co
     from django.core.mail import send_mail, send_mass_mail
 ```
 ```python
-    # Sample con
+    # Example code
     # send mail to single person
     send_mail(
         'Subject',
         'Body', 
-        'from@mail.com', 
-        ['to_person1@mail.com'])
+        ['to_person1@mail.com'],
+        'from@mail.com')
 
     # To send mail to multiple people as CC
     send_mail(
         'Subject',
         'Mail Body',
-        'from@example.com',
-        ['to_person1@mail.com', 'to_person2@mail.com', ])
+        ['to_person1@mail.com', 'to_person2@mail.com', ],
+        'from@example.com')
 
     # For sending multiple mails or mails with BCC
     x = send_mass_mail(
         (
             'Subject',
             'Mail Body',
-            'from@example.com',
-            ['to_person1@mail.com']
+            ['to_person1@mail.com'],
+            'from@example.com'
         ),
         (
             'Subject',
             'Mail Body',
-            'from@example.com',
             ['to_person3@mail.com', 'to_person2@mail.com', ]
+            'from@example.com'
         ),
     )
-    for i in x:
-        print(i)
 ```
