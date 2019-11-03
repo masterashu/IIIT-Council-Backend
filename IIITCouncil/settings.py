@@ -122,6 +122,18 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Email Configuration (SMTP)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+MAILGUN_API_KEY = os.getenv('MAILGUN_API_KEY')
+MAILGUN_BASE_URL = 'https://api.mailgun.net/v3/sandboxc39cd4fea2384d549aceafba02da9e7b.mailgun.org/messages'
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
