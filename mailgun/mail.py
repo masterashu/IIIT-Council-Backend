@@ -65,7 +65,7 @@ def send_mass_mail(datatuples, fail_silently=True):
                       'to': to,
                       'subject': subject,
                       'text': body})
-            print(response.status_code)
+            # print(response.status_code)
             # If Response is not OK(200) show failed message
             if not fail_silently and response.status_code != 200:
                 # TODO raise any error or log failed email.
