@@ -134,6 +134,52 @@ EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 
 
+# Logging Configuration
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            # 'dateformat' : "%Y/%b/%d %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': './logs/MAILGUN.log',
+            'maxBytes': 1048576,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+
+        # 'sentry': {
+        #     'level': 'DEBUG',
+        #     'class': 'logging.handlers.'
+        # }
+    },
+    'loggers': {
+        'django.error': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+        },
+        'mailgun.mail': {
+            'handlers': ['logfile'],
+            'level': 'DEBUG',
+        }
+        # 'app_name': {
+        #     'handlers': ['logfile'],
+        #     'level': 'DEBUG'
+        # }
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
