@@ -5,6 +5,7 @@ import logging
 logger = logging.getLogger('mailgun.mail')
 
 
+
 def send_mail(subject, body, to, sender=settings.EMAIL_HOST_USER, fail_silently=True):
     """ 
     Send a Single mail to one or more users  
@@ -34,6 +35,7 @@ def send_mail(subject, body, to, sender=settings.EMAIL_HOST_USER, fail_silently=
     if not fail_silently and response.status_code != 200:
         print(__name__)
         logger.warning("Unable to Send Mail")
+
     return response
 
 
@@ -79,4 +81,5 @@ def send_mass_mail(datatuples, fail_silently=True):
             # If Response is not OK(200) show failed message
             if not fail_silently and response.status_code != 200:
                 logger.warning("Unable to Send Mail")
+
         my_session.close()
