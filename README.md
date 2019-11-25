@@ -11,6 +11,8 @@
     ```bash
     pip install -r requirements.txt
     ```
+    > Note: You might need to install dependencies for psycopg2  
+    > `sudo apt install libpq-dev python3-dev`
     
 * [Setup postgreSQL database](#setup-postgresql)
 * Run `python manage.py check` to check any errors
@@ -26,14 +28,14 @@
     CREATE USER user1 WITH PASSWORD 'password';
     ```
 
-1. Edit properties to optimize queries (optional)
+3. Edit properties to optimize queries (optional)
     ```sql
     ALTER ROLE user1 SET client_encoding TO 'utf8';
     ALTER ROLE user1 SET default_transaction_isolation TO 'read committed';
     ALTER ROLE user1 SET timezone TO 'UTC';
     ```
 
-1. Create a new database named `iiits_council` and give `user1` the access using the following command  
+4. Create a new database named `iiits_council` and give `user1` the access using the following command  
    ```sql
     CREATE DATABASE iiits_council
         WITH 
