@@ -185,6 +185,7 @@ LOGGING = {
 AUTH_USER_MODEL = 'registration.User'
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
