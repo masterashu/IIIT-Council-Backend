@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/base/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/about/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
     {% block head %}
 
     {% endblock %}
@@ -168,8 +169,27 @@
     </header>
 
 
-    {% block body %}{% endblock %}
-
+    <div class="login-clean bg-white">
+        <form method="post" class="shadow">
+            {% csrf_token %}
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration">
+                <h3 class="text-left text-heading">Login</h3>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">
+                    Log In
+                </button>
+            </div>
+            <a class="forgot" href="#">Forgot your email or password?</a>
+        </form>
+    </div>
 
     <!-- Footer -->
     <footer>

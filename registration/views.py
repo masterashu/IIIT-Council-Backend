@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 
 class LoginView(View):
     def get(self, request):
-        return render(request, 'base/login.html')
+        return render(request, 'login/registration/login.html')
 
     def post(self, request):
         username, password = request.POST['username'], request.POST['password']
@@ -16,7 +16,7 @@ class LoginView(View):
 
         if user is None:
             error = 'Unable to login, please verify username and password.'
-            return render(request, 'base/login.html', context={'error': error})
+            return render(request, 'login/registration/login.html', context={'error': error})
 
         try:
             auth_login(request, user=user)
