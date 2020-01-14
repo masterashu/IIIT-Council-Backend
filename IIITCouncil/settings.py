@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
+    'account',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -179,6 +182,7 @@ LOGGING = {
     }
 }
 
+AUTH_USER_MODEL = 'registration.User'
 
 
 # Static files (CSS, JavaScript, Images)
