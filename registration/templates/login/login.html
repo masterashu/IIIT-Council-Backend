@@ -1,137 +1,330 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Admin Panel (Sidebar)</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/style2.css">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
 </head>
 
-<body><div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3><i class="fa fa-users", id="icons"></i>Name</h3>
-                <h6 id="designation">Designation</h6>
-            </div>
-
-            <ul class="list-unstyled components">
-                <p><i class="fa fa-home", id="icons"></i>Dashboard</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-bars", id="icons"></i>Dropdown</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#"><i class="fa fa-folder", id="icons"></i>Menu 1</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-rss", id="icons"></i>Menu 2</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file", id="icons"></i>Menu 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-star", id="icons"></i>Heading</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-folder", id="icons"></i>Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#"><i class="fa fa-file", id="icons"></i>Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file", id="icons"></i>Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file", id="icons"></i>Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-star", id="icons"></i>Menu Item</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-star", id="icons"></i>Menu Item</a>
-                </li>
-            </ul>
-
-            <ul class="list-unstyled CTAs">
-
-            </ul>
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
+<body>
+<div class="d-flex justify-content-end align-items-center justify-content-sm-end align-items-sm-center justify-content-md-end align-items-md-center justify-content-lg-end align-items-lg-center"
+     style="background-color: #190056;color: rgb(255,255,255);padding-top: 2px;padding-bottom: 2px;">
+    <div style="margin-right: 12vw;">
+        <p style="margin-bottom: 0px;font-size: 12px;">English/Hindi</p>
+    </div>
+    <div style="margin-right: 7vw;">
+        <p style="margin-bottom: 0px;margin-right: 0;font-size: 13px;">
+            A- &nbsp;A &nbsp;A+
+        </p>
+    </div>
+</div>
+<div
+        class="row justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
+    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 offset-xl-0 text-center align-self-center"
+         style="background-color: #ffffff;">
+        <img src="{% static 'img/logo.png' %}" width="50%"/>
+    </div>
+    <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style="background-color: #ffffff;">
+        <h5 class="text-left" style="margin-top: 3%;font-size: 1.5vw;margin-bottom: 0px;">
+            Council of Indian Institute of Information Technology
+        </h5>
+        <p style="font-size: 1vw;">
+            Ministry of Human Resource Development, Government
+        </p>
+    </div>
+    <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style="background-color: #ffffff;">
+        <img src="{% static 'img/logo_2.png' %}" width="95%" style="padding-top: 2%;"/>
+    </div>
+</div>
+<nav class="navbar navbar-dark navbar-expand-md text-center navigation-clean-button"
+     style="padding: 0px;background-color: rgb(25,0,86);">
+    <div class="container">
+        <button
+                data-toggle="collapse"
+                class="navbar-toggler"
+                data-target="#navcol-1"
+                style="color: rgb(255,255,255);"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span
+                class="navbar-toggler-icon"
+                style="color: rgb(255,255,255);"
+        ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul
+                    class="nav navbar-nav mr-auto"
+                    style="margin: 0px;margin-right: 0px;"
+            >
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="padding: 8px 18px;margin: 0px;margin-right: 10px;"
+                    >About&nbsp;</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
                     </div>
-                </div>
-            </nav>
-
-            <h2>Dashboard</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="margin: 0px;margin-right: 10px;"
+                    >IIIT Council</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="margin: 0px;margin-right: 10px;"
+                    >Administration</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="margin: 0px;margin-right: 10px;"
+                    >People</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="margin: 0px;margin-right: 10px;"
+                    >Education&nbsp;</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="margin: 0px;margin-right: 10px;"
+                    >Research&nbsp;</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="dropdown-toggle nav-link"
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                            href="#"
+                            style="padding-right: 18px;margin: 0px;margin-right: 10px;"
+                    >Collaboration</a
+                    >
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" role="presentation" href="#"
+                        >First Item</a
+                        ><a class="dropdown-item" role="presentation" href="#"
+                    >Second Item</a
+                    ><a class="dropdown-item" role="presentation" href="#"
+                    >Third Item</a
+                    >
+                    </div>
+                </li>
+            </ul>
+            <span class="navbar-text actions"> </span>
         </div>
     </div>
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar, #content').toggleClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</nav>
+<div class="login-clean bg-white">
+    <form method="post" class="shadow">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration">
+            <h3 class="text-left text-heading">Login</h3>
+        </div>
+        <div class="form-group">
+            <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+            />
+        </div>
+        <div class="form-group">
+            <input
+                    class="form-control"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+            />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+                Log In
+            </button>
+        </div>
+        <a class="forgot" href="#">Forgot your email or password?</a>
+    </form>
+</div>
+<div class="text-left" style="margin-top: 50px;">
+    <div class="container-fluid" style="margin-left: 0px;margin-right: 0px;">
+        <div class="row" style="background-color: #190056;margin: 0px -15px;">
+            <div class="col-md-6" style="background-color: #190056;padding: 0px;">
+                <img src="{% static 'img/logo.png' %}" style="width: 35%;"/>
+                <h3 style="color: rgb(255,255,255);">
+                    Council of Indian Institute of Information Technology<br/>
+                </h3>
+                <p style="color: rgb(255,255,255);">
+                    Address<br/>ABV-Indian Institute of Information Technology and
+                    Management<br/>Morena Link Road, Gwalior,<br/>Madhya Pradesh<br/>474015<br/>India<br/><br/>Email
+                    - jagdish@iiitm.ac.in<br/>Phone - +91-751-2449709<br/>
+                </p>
+            </div>
+            <div class="col-md-6" style="background-color: #190056;">
+                <div
+                        class="d-flex flex-grow-1 flex-wrap justify-content-lg-end align-items-lg-start justify-content-xl-center align-items-xl-start"
+                        style="background-color: #190056;height: 100%;color: rgb(255,255,255);padding-top: 40px;line-height: 12px;font-size: 12px;"
+                >
+                    <div style="width: 23%;line-height: 12px;">
+                        <h5
+                                style="color: rgb(255,255,255);margin-bottom: 20px;font-size: 1.5vw;"
+                        >
+                            <span style="text-decoration: underline;">About</span>
+                        </h5>
+                        <p>About IIIT<br/></p>
+                        <p>IIIT Act<br/></p>
+                        <p>History<br/></p>
+                        <p>Administration Structure<br/></p>
+                        <p>IIIT System Review Reports<br/></p>
+                        <p>PPP Partnership<br/></p>
+                    </div>
+                    <div style="color: rgb(255,255,255);width: 23%;">
+                        <h5 style="margin-bottom: 20px;font-size: 1.5vw;">
+                  <span style="text-decoration: underline;"
+                  >IIIT&nbsp;Council</span
+                  >
+                        </h5>
+                        <p>Council Minutes<br/></p>
+                        <p>External Peer Review<br/></p>
+                        <p>MHRD Initiatives<br/></p>
+                        <p>Parliamentary Questions<br/></p>
+                    </div>
+                    <div style="width: 23%;">
+                        <h5 style="margin-bottom: 20px;font-size: 1.5vw;">
+                            <span style="text-decoration: underline;">Research</span>
+                        </h5>
+                        <p>Projects<br/></p>
+                        <p>Publications<br/></p>
+                        <p>Research Initiatives<br/></p>
+                        <p>Annual Reports<br/></p>
+                        <p>Research Facilities<br/></p>
+                        <p>Technology Developed<br/></p>
+                        <p>Patents<br/></p>
+                        <p>Contacts For Research<br/></p>
+                    </div>
+                    <div style="width: 23%;">
+                        <h5 style="margin-bottom: 20px;font-size: 1.5vw;">
+                            <span style="text-decoration: underline;">People</span>
+                        </h5>
+                        <p>Student</p>
+                        <p>Faculty</p>
+                        <p>Alumni</p>
+                    </div>
+                    <div style="width: 30%;">
+                        <h5 style="margin-bottom: 20px;font-size: 1.5vw;">
+                  <span style="text-decoration: underline;"
+                  >Administration</span
+                  >
+                        </h5>
+                        <p>Faculty Recruitment&nbsp;<br/></p>
+                        <p>Labour Practices Followed<br/></p>
+                        <p>Store and Purchases<br/></p>
+                        <p>BoG Meetings<br/></p>
+                        <p>Audit Reports<br/></p>
+                    </div>
+                    <div style="width: 30%;">
+                        <h5 style="margin-bottom: 20px;font-size: 1.5vw;">
+                            <span style="text-decoration: underline;">Education</span>
+                        </h5>
+                        <p>Admission<br/></p>
+                        <p>Academic Programmes<br/></p>
+                        <p>Academic Departments<br/></p>
+                    </div>
+                    <div style="width: 30%;">
+                        <h5 style="margin-bottom: 20px;font-size: 1.5vw;">
+                            <span style="text-decoration: underline;">Colloboration</span>
+                        </h5>
+                        <p>Introduction<br/></p>
+                        <p>Research MoUs<br/></p>
+                        <p>Academic MoUs<br/></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
