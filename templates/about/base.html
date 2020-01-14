@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/base/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about/styles.css' %}">
     {% block head %}
 
     {% endblock %}
@@ -72,9 +73,12 @@
                                 <a class="dropdown-item anchorhover a4" href="{% url 'about' %}">About IIIT</a>
                                 <a class="dropdown-item anchorhover a4" href="{% url 'about_iiit_act' %}">IIIT Act</a>
                                 <a class="dropdown-item anchorhover a4" href="{% url 'about_history' %}">History</a>
-                                <a class="dropdown-item anchorhover a4" href="{% url 'about_administrative_structure' %}">Administation Structure</a>
-                                <a class="dropdown-item anchorhover a4" href="{% url 'about_system_review_reports' %}">IIIT System Review Reports</a>
-                                <a class="dropdown-item anchorhover a4" href="{% url 'about_ppp_partners' %}">PPP Partnership</a>
+                                <a class="dropdown-item anchorhover a4"
+                                    href="{% url 'about_administrative_structure' %}">Administation Structure</a>
+                                <a class="dropdown-item anchorhover a4"
+                                    href="{% url 'about_system_review_reports' %}">IIIT System Review Reports</a>
+                                <a class="dropdown-item anchorhover a4" href="{% url 'about_ppp_partners' %}">PPP
+                                    Partnership</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown mx-2">
@@ -185,21 +189,15 @@
                         class="row text-center align-items-lg-start justify-content-xl-center align-items-xl-start d15">
                         <div class="text-left col-lg-2 col-md-3 col-sm-6 col-xs-6">
                             <h5 class="heading5"><span class="s6">About</span></h5>
-                            <p><a class="anchor3" href="{% url 'about' %}">
-                                About
+                            <p><a class="anchor3" href="{% url 'about' %}">About
                                     IIIT</a></p>
-                            <p><a class="anchor3" href="{% url 'about_iiit_act' %}">
-                                IIIT Act</a></p>
-                            <p><a class="anchor3" href="{% url 'about_history' %}">
-                                History</a></p>
-                            <p><a class="anchor3" href="{% url 'about_administrative_structure' %}">
-                                Administrative
+                            <p><a class="anchor3" href="{% url 'about_iiit_act' %}">IIIT Act</a></p>
+                            <p><a class="anchor3" href="{% url 'about_history' %}">History</a></p>
+                            <p><a class="anchor3" href="{% url 'about_administrative_structure' %}">Administrative
                                     Structure</a></p>
-                            <p><a class="anchor3" href="{% url 'about_system_review_reports' %}">
-                                IIIT System Review
+                            <p><a class="anchor3" href="{% url 'about_system_review_reports' %}">IIIT System Review
                                     Reports</a></p>
-                            <p><a class="anchor3" href="{% url 'about_ppp_partners' %}">
-                                PPP Partners</a></p>
+                            <p><a class="anchor3" href="{% url 'about_ppp_partners' %}">PPP Partners</a></p>
                         </div>
                         <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                             <h5 class="text-truncate heading6"><span class="s6">IIIT&nbsp;Council</span></h5>
