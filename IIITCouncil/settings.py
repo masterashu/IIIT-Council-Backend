@@ -184,7 +184,9 @@ LOGGING = {
 
 AUTH_USER_MODEL = 'registration.User'
 
+PASSWORD_RESET_TIMEOUT = 30 * 60
 
+DOMAIN = 'localhost:8000'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
