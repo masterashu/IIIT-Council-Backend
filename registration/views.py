@@ -8,6 +8,7 @@ from django.utils.http import urlsafe_base64_encode as b64_encode
 from mailgun.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.utils.html import strip_tags
 
 
 class LoginView(View):
@@ -46,7 +47,8 @@ class PasswordChangeView(LoginRequiredMixin, View):
         return render(request, 'login/password_change.html')
 
     def post(self, request):
-        old_pass, new_pass, conf_new_pass = request.POST['old'], request.POST['new'], request.POST['confirm_new']
+        old_pass, new_pass, conf_new_pass = request.POST[
+            'old'], request.POST['new'], request.POST['confirm_new']
 
         if request.user.check_password(old_pass):
             if new_pass == conf_new_pass:
@@ -86,9 +88,11 @@ class PasswordResetDoneView(View):
             'domain': settings.DOMAIN,
             'uid': uidb64,
             'token': token,
-            'name': user.first_name
+            'name': user.first_name,
         }
-        send_mail("Password Reset", render_to_string('registration/password_reset_mail.html', context=context),
+        mail_body = render_to_string(
+            'registration/password_reset_email.html', context=context)
+        send_mail("Password Reset", mail_body,
                   [user.email], 'donotreply@example.com')
         return render(request, 'registration/password_reset_done.html')
 

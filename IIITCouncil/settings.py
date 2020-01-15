@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'registration',
     'account',
     'base',
-    'django_inlinecss'
+    'django_inlinecss',
 ]
 
 MIDDLEWARE = [
@@ -193,6 +193,10 @@ DOMAIN = 'localhost:8000'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+
+INLINECSS_CSS_LOADER = 'django_inlinecss.css_loaders.StaticfilesFinderCSSLoader'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
