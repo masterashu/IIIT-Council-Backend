@@ -11,7 +11,7 @@ class LoginView(View):
         return render(request, 'login/registration/login.html')
 
     def post(self, request):
-        username, password = request.POST['username'], request.POST['password']
+        username, password = request.POST['email'], request.POST['password']
         user = authenticate(request, username=username, password=password)
 
         if user is None:
@@ -23,9 +23,9 @@ class LoginView(View):
         except:
             error = 'Unable to login. Please try again in some time.'
             return render(request, 'base/login.html', context={'error': error})
-        if request.POST['next'] is not None:
+        if request.POST.get('next', None) is not None:
             return redirect(to=request.POST['next'])
-        return redirect(to='home')
+        return redirect(to='home_page')
 
 
 class LogoutView(View):
