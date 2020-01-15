@@ -86,6 +86,7 @@ class PasswordResetDoneView(View):
             'domain': settings.DOMAIN,
             'uid': uidb64,
             'token': token,
+            'name': user.first_name
         }
         send_mail("Password Reset", render_to_string('registration/password_reset_mail.html', context=context),
                   [user.email], 'donotreply@example.com')

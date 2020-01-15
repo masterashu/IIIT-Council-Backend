@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'registration',
     'account',
     'base',
+    'django_inlinecss'
 ]
 
 MIDDLEWARE = [
