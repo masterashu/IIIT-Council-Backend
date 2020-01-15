@@ -4,11 +4,11 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.mixins import LoginRequiredMixin
 from registration.models import User
 from django.contrib.auth.tokens import default_token_generator
-from django.utils.http import urlsafe_base64_encode as b64_encode
+from django.utils.http import urlsafe_base64_encode as b64_encode, urlsafe_base64_decode as b64_decode
 from mailgun.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-from django.utils.html import strip_tags
+from django.http import HttpResponse
 
 
 class LoginView(View):
@@ -48,7 +48,7 @@ class PasswordChangeView(LoginRequiredMixin, View):
 
     def post(self, request):
         old_pass, new_pass, conf_new_pass = request.POST[
-            'old'], request.POST['new'], request.POST['confirm_new']
+                                                'old'], request.POST['new'], request.POST['confirm_new']
 
         if request.user.check_password(old_pass):
             if new_pass == conf_new_pass:
@@ -99,10 +99,32 @@ class PasswordResetDoneView(View):
 
 class PasswordResetConfirmView(View):
     def get(self, request, uidb64, token):
-
-        pass
+        print(token)
+        dtg = default_token_generator
+        try:
+            user = User.objects.get(pk=b64_decode(uidb64).decode())
+        except:
+            return HttpResponse(status=400, content='Bad URL.')
+        if dtg.check_token(user, token):
+            return render(request, 'registration/password_reset_confirm.html', context={'uid': uidb64, 'token': token})
+        return HttpResponse(status=400, content='Bad URL.')
 
 
 class PasswordResetCompleteView(View):
     def post(self, request):
-        pass
+        try:
+            uidb64 = request.POST['uid']
+            token = request.POST['token']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
+            user = User.objects.get(pk=b64_decode(uidb64).decode())
+            if password1 != password2:
+                raise ValueError
+        except KeyError:
+            return HttpResponse(status=400, content="Bad Request. Please verify passwords or try again")
+        except ValueError:
+            return HttpResponse(status=400, content="Bad Request. Passwords do not match.")
+        except User.DoesNotExist:
+            return HttpResponse(status=400, content="Bad Request.")
+        user.set_password(password1)
+        return render(request, 'registration/password_reset_complete.html')
