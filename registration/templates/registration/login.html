@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/base/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/about/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+
     {% block head %}
 
     {% endblock %}
@@ -23,8 +24,7 @@
                 <p class="p1">{% now "d M, Y  |  h:i A e" %}</p>
             </div>
             <div class="upper">
-                <p class="p1"><a><i class="fa fa-arrow-down"></i> &nbsp; <a class="anchor3" href="#footer_jump">Skip to
-                    Navigation</a></a></p>
+                <p class="p1"><a><i class="fa fa-arrow-down"></i> &nbsp; <a class="anchor3" href="#footer_jump">Skip to Navigation</a> </a></p>
             </div>
             <div class="remain-1">
                 <p class="p1"><a> <i class='fas fa-volume-up'></i> &nbsp; Screen Reader</a></p>
@@ -75,10 +75,10 @@
                             <a class="dropdown-item anchorhover a4" href="{% url 'about' %}">About IIIT</a>
                             <a class="dropdown-item anchorhover a4" href="{% url 'about_iiit_act' %}">IIIT Act</a>
                             <a class="dropdown-item anchorhover a4" href="{% url 'about_history' %}">History</a>
-                            <a class="dropdown-item anchorhover a4" href="{% url 'about_administrative_structure' %}">Administation
-                                Structure</a>
-                            <a class="dropdown-item anchorhover a4" href="{% url 'about_system_review_reports' %}">IIIT
-                                System Review Reports</a>
+                            <a class="dropdown-item anchorhover a4"
+                               href="{% url 'about_administrative_structure' %}">Administation Structure</a>
+                            <a class="dropdown-item anchorhover a4"
+                               href="{% url 'about_system_review_reports' %}">IIIT System Review Reports</a>
                             <a class="dropdown-item anchorhover a4" href="{% url 'about_ppp_partners' %}">PPP
                                 Partnership</a>
                         </div>
@@ -170,8 +170,27 @@
 </header>
 
 
-{% block body %}{% endblock %}
-
+<div class="login-clean bg-white">
+    <form method="post" class="shadow">
+        {% csrf_token %}
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration">
+            <h3 class="text-left text-heading">Login</h3>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+                Log In
+            </button>
+        </div>
+        <a class="forgot" href="#">Forgot your email or password?</a>
+    </form>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -179,8 +198,7 @@
         <div class="container-fluid text-left">
             <div class="row d12">
                 <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 d13"><a href="{% url 'home_page' %}"><img class="img2"
-                                                                                                            src="{% static 'img/base/logo.png' %}">
-                </a>
+                                                                                                            src="{% static 'img/base/logo.png' %}"></a>
                     <h4 class="heading4">Council of Indian Institute of Information Technology<br></h4>
                     <p class="p11">Address<br>ABV-Indian Institute of Information Technology and Management<br>Morena
                         Link

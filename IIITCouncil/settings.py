@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -184,7 +184,9 @@ LOGGING = {
 
 AUTH_USER_MODEL = 'registration.User'
 
+PASSWORD_RESET_TIMEOUT = 30 * 60
 
+DOMAIN = 'localhost:8000'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
