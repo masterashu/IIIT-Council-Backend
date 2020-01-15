@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -11,8 +12,8 @@ class LoginView(View):
         return render(request, 'login/registration/login.html')
 
     def post(self, request):
-        username, password = request.POST['email'], request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        email, password = request.POST['email'], request.POST['password']
+        user = authenticate(request, username=email, password=password)
 
         if user is None:
             error = 'Unable to login, please verify username and password.'
@@ -34,3 +35,23 @@ class LogoutView(View):
         return redirect(to='home')
 
 
+class ChangePassword(LoginRequiredMixin, View):
+    login_url = '/login'
+    redirect_field_name = 'next'
+
+    def get(self, request):
+        return render(request, 'login/password_change.html')
+
+    def post(self, request):
+        old_pass, new_pass, conf_new_pass = request.POST['old'], request.POST['new'], request.POST['confirm_new']
+
+        if request.user.check_password(old_pass):
+            if new_pass == conf_new_pass:
+                request.user.set_password(new_pass)
+                return redirect(to="password_change_done")
+            else:
+                error = "New passwords do not match."
+                return render(request, 'login/password_change.html', context={'error': error})
+        else:
+            error = "Old password is wrong."
+            return render(request, 'login/password_change.html', context={'error': error})
