@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/base/styles.css' %}">
     {% block head %}
@@ -16,13 +15,13 @@
 <body>
 <header>
     <div class="mainhead">
-        <div
-                class="height d-flex justify-content-between align-items-center justify-content-sm-between align-items-sm-center justify-content-md-between align-items-md-center justify-content-lg-between align-items-lg-center d1">
+        <div class="height d-flex justify-content-between align-items-center justify-content-sm-between align-items-sm-center justify-content-md-between align-items-md-center justify-content-lg-between align-items-lg-center d1">
             <div class="time upper">
                 <p class="p1">{% now "d M, Y  |  h:i A e" %}</p>
             </div>
             <div class="upper">
-                <p class="p1"><a><i class="fa fa-arrow-down"></i> &nbsp; Skip to Navigation</a></p>
+                <p class="p1"><a><i class="fa fa-arrow-down"></i> &nbsp;<a class="anchor3" href="#footer_jump">Skip to
+                    Navigation</a></a></p>
             </div>
             <div class="remain-1">
                 <p class="p1"><a> <i class='fas fa-volume-up'></i> &nbsp; Screen Reader</a></p>
@@ -41,14 +40,13 @@
 
     <div class="row mx-0 justify-content-around align-items-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center"
          style="width: 98%; align-content: center;">
-        <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 text-right align-self-center img1"><a href="{% url 'home_page' %}"><img
-                class="img-fluid icon" src="{% static 'img/base/logo.png' %}" width="120px"></a> </div>
+        <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 text-right align-self-center img1">
+            <a href="{% url 'home_page' %}"><img class="img-fluid icon" src="{% static 'img/base/logo.png' %}" width="120px"></a></div>
         <div class="col-8 col-sm-8 col-md-4 col-lg-5 col-xl-5 align-self-center mr-auto" style="padding: 0px;">
             <h1 class="text-left mb-0 icon-text">Council of Indian Institute of Information Technology</h1>
             <p class="mb-0 icon-text">Ministry of Human Resource Development, Government</p>
         </div>
-        <div
-                class="col-12 col-sm-11 col-md-6 col-lg-5 col-xl-5 d-flex align-self-center mx-auto align-items-md-center">
+        <div class="col-12 col-sm-11 col-md-6 col-lg-5 col-xl-5 d-flex align-self-center mx-auto align-items-md-center">
             <img class="img-fluid my-2" src="{% static 'img/base/logo_2.png' %}" width="120px" style="width: 100%;">
         </div>
     </div>
@@ -158,98 +156,100 @@
                         </div>
                     </li>
                 </ul>
-                <span class="text-right pull-right navbar-text actions" style="margin-right: 10px;"> <a
-                        class="login" href="{% url 'login' %}">Log In</a></span>
+                <span class="text-right pull-right navbar-text actions" style="margin-right: 10px;">
+                    <a class="login" href="{% url 'login' %}"> Log In </a>
+                </span>
             </div>
         </div>
     </nav>
     <!-- End -->
 </header>
 
-
-{% block body %}{% endblock %}
-
+{% block body %} {% endblock %}
 
 <!-- Footer -->
 <footer>
-    <div class="container-fluid text-left">
-        <div class="row d12">
-            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 d13"><a href="{% url 'home_page' %}"><img class="img2" src="{% static 'img/base/logo.png' %}"> </a>
-                <h4 class="heading4">Council of Indian Institute of Information Technology<br></h4>
-                <p class="p11">Address<br>ABV-Indian Institute of Information Technology and Management<br>Morena
-                    Link
-                    Road, Gwalior,<br>Madhya Pradesh<br>474015<br>India<br><br>Email - jagdish@iiitm.ac.in<br>Phone
-                    -
-                    +91-751-2449709<br></p>
-            </div>
-            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 d14">
-                <div
-                        class="row text-center align-items-lg-start justify-content-xl-center align-items-xl-start d15">
-                    <div class="text-left col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="heading5"><span class="s6">About</span></h5>
-                        <p><a class="anchor3" href="{% url 'about' %}"> About IIIT</a></p>
-                        <p><a class="anchor3" href="{% url 'about_iiit_act' %}"> IIIT Act</a></p>
-                        <p><a class="anchor3" href="{% url 'about_history' %}"> History</a></p>
-                        <p><a class="anchor3" href="{% url 'about_administrative_structure' %}"> Administrative Structure</a></p>
-                        <p><a class="anchor3" href="{% url 'about_system_review_reports' %}">
-                            IIIT System Review
-                            Reports</a></p>
-                        <p><a class="anchor3" href="{% url 'about_ppp_partners' %}"> PPP Partners</a></p>
-                    </div>
-                    <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="text-truncate heading6"><span class="s6">IIIT&nbsp;Council</span></h5>
-                        <p><a class="text-truncate anchor3" href="#">Council Minutes</a></p>
-                        <p><a href="#" class="anchor3">External Peer Review</a></p>
-                        <p><a href="#" class="anchor3">MHRD Initiatives</a></p>
-                        <p><a href="#" class="anchor3">Parlimentary Questions</a></p>
-                    </div>
-                    <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="text-truncate heading6"><span class="s6">Research</span></h5>
-                        <p><a href="#" class="anchor3">Projects</a></p>
-                        <p><a href="#" class="anchor3">Publications</a></p>
-                        <p><a href="#" class="anchor3">Research Initiatives</a></p>
-                        <p class="text-truncate"><a class="anchor3" href="#">Annual Reports</a></p>
-                        <p><a class="text-truncate anchor3" href="#">Research Facilities</a></p>
-                        <p><a class="text-truncate anchor3" href="#">Technology Developed</a></p>
-                        <p><a href="#" class="anchor3">Patents</a></p>
-                        <p><a class="text-truncate anchor3" href="#">Contacts For Research</a></p>
-                    </div>
-                    <div class="text-left col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="heading6"><span class="s6">People</span></h5>
-                        <p><a href="#" class="anchor3">Students</a></p>
-                        <p><a href="#" class="anchor3">Faculty</a></p>
-                        <p><a href="#" class="anchor3">Alumni</a></p>
-                    </div>
-                    <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="text-truncate heading6"><span class="s6">Administration</span></h5>
-                        <p><a href="#" class="anchor3">Faculty Recruitment</a></p>
-                        <p><a href="#" class="anchor3">Labour Practices Followed</a></p>
-                        <p><a href="#" class="anchor3">Store and Purchases</a></p>
-                        <p><a href="#" class="anchor3">BoG Meetings</a></p>
-                        <p><a href="#" class="anchor3">Audit Reports</a></p>
-                    </div>
-                    <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="heading6"><span class="s6">Education</span></h5>
-                        <p><a href="#" class="anchor3">Admission</a></p>
-                        <p><a href="#" class="anchor3">Academic Programmes</a></p>
-                        <p><a href="#" class="anchor3">Academic Departments</a></p>
-                    </div>
-                    <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="heading6"><span class="s6">Colloboration</span></h5>
-                        <p><a href="#" class="anchor3">Introduction</a></p>
-                        <p><a href="#" class="anchor3">Research MoUs</a></p>
-                        <p><a href="#" class="anchor3">Academic MoUs</a></p>
+    <a id="footer_jump">
+        <div class="container-fluid text-left">
+            <div class="row d12">
+                <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 d13">
+                    <a href="{% url 'home_page' %}"> <img class="img2" src="{% static 'img/base/logo.png' %}"> </a>
+                    <h4 class="heading4">Council of Indian Institute of Information Technology<br></h4>
+                    <p class="p11">Address<br>ABV-Indian Institute of Information Technology and Management<br>Morena
+                        Link
+                        Road, Gwalior,<br>Madhya Pradesh<br>474015<br>India<br><br>Email - jagdish@iiitm.ac.in<br>Phone
+                        -
+                        +91-751-2449709<br></p>
+                </div>
+                <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 d14">
+                    <div
+                            class="row text-center align-items-lg-start justify-content-xl-center align-items-xl-start d15">
+                        <div class="text-left col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="heading5"><span class="s6">About</span></h5>
+                            <p><a class="anchor3" href="{% url 'about' %}"> About IIIT</a></p>
+                            <p><a class="anchor3" href="{% url 'about_iiit_act' %}"> IIIT Act</a></p>
+                            <p><a class="anchor3" href="{% url 'about_history' %}"> History</a></p>
+                            <p><a class="anchor3" href="{% url 'about_administrative_structure' %}"> Administrative
+                                Structure</a></p>
+                            <p><a class="anchor3" href="{% url 'about_system_review_reports' %}">
+                                IIIT System Review
+                                Reports</a></p>
+                            <p><a class="anchor3" href="{% url 'about_ppp_partners' %}"> PPP Partners</a></p>
+                        </div>
+                        <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="text-truncate heading6"><span class="s6">IIIT&nbsp;Council</span></h5>
+                            <p><a class="text-truncate anchor3" href="#">Council Minutes</a></p>
+                            <p><a href="#" class="anchor3">External Peer Review</a></p>
+                            <p><a href="#" class="anchor3">MHRD Initiatives</a></p>
+                            <p><a href="#" class="anchor3">Parlimentary Questions</a></p>
+                        </div>
+                        <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="text-truncate heading6"><span class="s6">Research</span></h5>
+                            <p><a href="#" class="anchor3">Projects</a></p>
+                            <p><a href="#" class="anchor3">Publications</a></p>
+                            <p><a href="#" class="anchor3">Research Initiatives</a></p>
+                            <p class="text-truncate"><a class="anchor3" href="#">Annual Reports</a></p>
+                            <p><a class="text-truncate anchor3" href="#">Research Facilities</a></p>
+                            <p><a class="text-truncate anchor3" href="#">Technology Developed</a></p>
+                            <p><a href="#" class="anchor3">Patents</a></p>
+                            <p><a class="text-truncate anchor3" href="#">Contacts For Research</a></p>
+                        </div>
+                        <div class="text-left col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="heading6"><span class="s6">People</span></h5>
+                            <p><a href="#" class="anchor3">Students</a></p>
+                            <p><a href="#" class="anchor3">Faculty</a></p>
+                            <p><a href="#" class="anchor3">Alumni</a></p>
+                        </div>
+                        <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="text-truncate heading6"><span class="s6">Administration</span></h5>
+                            <p><a href="#" class="anchor3">Faculty Recruitment</a></p>
+                            <p><a href="#" class="anchor3">Labour Practices Followed</a></p>
+                            <p><a href="#" class="anchor3">Store and Purchases</a></p>
+                            <p><a href="#" class="anchor3">BoG Meetings</a></p>
+                            <p><a href="#" class="anchor3">Audit Reports</a></p>
+                        </div>
+                        <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="heading6"><span class="s6">Education</span></h5>
+                            <p><a href="#" class="anchor3">Admission</a></p>
+                            <p><a href="#" class="anchor3">Academic Programmes</a></p>
+                            <p><a href="#" class="anchor3">Academic Departments</a></p>
+                        </div>
+                        <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h5 class="heading6"><span class="s6">Colloboration</span></h5>
+                            <p><a href="#" class="anchor3">Introduction</a></p>
+                            <p><a href="#" class="anchor3">Research MoUs</a></p>
+                            <p><a href="#" class="anchor3">Academic MoUs</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="cr">
-        <p class="icr">Copyrights © 2019</p>
-    </div>
+        <div class="cr">
+            <p class="icr">Copyrights © 2019</p>
+        </div>
+    </a>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
