@@ -91,3 +91,14 @@ class PasswordResetDoneView(View):
         send_mail("Password Reset", render_to_string('registration/password_reset_mail.html', context=context),
                   [user.email], 'donotreply@example.com')
         return render(request, 'registration/password_reset_done.html')
+
+
+class PasswordResetConfirmView(View):
+    def get(self, request, uidb64, token):
+
+        pass
+
+
+class PasswordResetCompleteView(View):
+    def post(self, request):
+        pass
