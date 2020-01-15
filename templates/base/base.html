@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/base/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration/styles.css' %}">
     {% block head %}
 
     {% endblock %}
@@ -17,7 +19,7 @@
     <div class="mainhead">
         <div class="height d-flex justify-content-between align-items-center justify-content-sm-between align-items-sm-center justify-content-md-between align-items-md-center justify-content-lg-between align-items-lg-center d1">
             <div class="time upper">
-                <p class="p1">{% now "d M, Y  |  h:i A e" %}</p>
+                <p class="p1" id="navbar-timer">{% now "d M, Y  |  h:i A e" %}</p>
             </div>
             <div class="upper">
                 <p class="p1"><a><i class="fa fa-arrow-down"></i> &nbsp;<a class="anchor3" href="#footer_jump">Skip to
@@ -41,7 +43,8 @@
     <div class="row mx-0 justify-content-around align-items-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center"
          style="width: 98%; align-content: center;">
         <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 text-right align-self-center img1">
-            <a href="{% url 'home_page' %}"><img class="img-fluid icon" src="{% static 'img/base/logo.png' %}" width="120px"></a></div>
+            <a href="{% url 'home_page' %}"><img class="img-fluid icon" src="{% static 'img/base/logo.png' %}"
+                                                 width="120px"></a></div>
         <div class="col-8 col-sm-8 col-md-4 col-lg-5 col-xl-5 align-self-center mr-auto" style="padding: 0px;">
             <h1 class="text-left mb-0 icon-text">Council of Indian Institute of Information Technology</h1>
             <p class="mb-0 icon-text">Ministry of Human Resource Development, Government</p>
@@ -251,5 +254,26 @@
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script>
+    {% autoescape off %}
+        setInterval(function () {
+            var now = new Date();
+            var text = document.getElementById("navbar-timer").innerText;
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var hours = now.getHours();
+            var am_pm;
+            if (hours >= 12) {
+                am_pm = "PM";
+            } else {
+                am_pm = "AM";
+            }
+            if (hours > 12) {
+                hours -= 12;
+            }
+            text = (now.getDate() + "").padStart(2, "0") + " " + months[now.getMonth()] + ", " + now.getFullYear() + " | " + (hours + "").padStart(2, "0") + ":" + (now.getMinutes() + "").padStart(2, "0") + " " + am_pm + " " + text[text.length - 3] + text[text.length - 2] + text[text.length - 1];
+            document.getElementById("navbar-timer").innerText = text;
+        }, 1000);
+    {% endautoescape %}
+</script>
 </body>
 </html>
