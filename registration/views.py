@@ -16,7 +16,10 @@ class LoginView(View):
         return render(request, 'registration/login.html')
 
     def post(self, request):
-        email, password = request.POST['email'], request.POST['password']
+        try:
+            email, password = request.POST['email'], request.POST['password']
+        except KeyError as e:
+            return render(request, 'registration/login.html', context={'error': f'Missing field: {e}'})
         user = authenticate(request, username=email, password=password)
 
         if user is None:
@@ -47,9 +50,11 @@ class PasswordChangeView(LoginRequiredMixin, View):
         return render(request, 'login/password_change.html')
 
     def post(self, request):
-        old_pass, new_pass, conf_new_pass = request.POST[
-                                                'old'], request.POST['new'], request.POST['confirm_new']
-
+        try:
+            old_pass, new_pass, conf_new_pass = request.POST[
+                                                'old'], request.POST['password1'], request.POST['password2']
+        except KeyError as e:
+            return render(request, 'login/password_change.html', context={'error': f'Missing field: {e}.'})
         if request.user.check_password(old_pass):
             if new_pass == conf_new_pass:
                 request.user.set_password(new_pass)
@@ -64,7 +69,7 @@ class PasswordChangeView(LoginRequiredMixin, View):
 
 class PasswordResetView(View):
     def get(self, request):
-        return render(request, 'registration/prf.html')
+        return render(request, 'registration/password_reset_form.html')
 
 
 class PasswordResetDoneView(View):
@@ -72,14 +77,14 @@ class PasswordResetDoneView(View):
         dtg = default_token_generator
         try:
             email = request.POST['email']
+            user = User.objects.get(email=email)
         except KeyError as e:
             error = 'Enter email id.'
             return render(request, 'registration/password_reset_form.html', context={'error': error})
-        try:
-            user = User.objects.get(email=email)
         except User.DoesNotExist:
             error = 'No account found with that Email-id.'
             return render(request, 'registration/password_reset_form.html', context={'error': error})
+
         token = dtg.make_token(user)
         uidb64 = b64_encode(bytes(str(user.pk).encode()))
         context = {
@@ -120,11 +125,17 @@ class PasswordResetCompleteView(View):
             user = User.objects.get(pk=b64_decode(uidb64).decode())
             if password1 != password2:
                 raise ValueError
+            dtg = default_token_generator
+            if not dtg.check_token(user, token):
+                raise AssertionError
         except KeyError:
             return HttpResponse(status=400, content="Bad Request. Please verify passwords or try again")
         except ValueError:
             return HttpResponse(status=400, content="Bad Request. Passwords do not match.")
         except User.DoesNotExist:
             return HttpResponse(status=400, content="Bad Request.")
+        except:
+            return HttpResponse(status=400, content="Bad Request.")
+
         user.set_password(password1)
         return render(request, 'registration/password_reset_complete.html')
