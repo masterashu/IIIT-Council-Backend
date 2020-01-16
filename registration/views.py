@@ -39,7 +39,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         auth_logout(request)
-        return redirect(to='home')
+        return redirect(to='home_page')
 
 
 class PasswordChangeView(LoginRequiredMixin, View):
