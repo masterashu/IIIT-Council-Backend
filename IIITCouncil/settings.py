@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'registration',
     'account',
     'base',
+    'django_inlinecss',
 ]
 
 MIDDLEWARE = [
@@ -184,12 +185,18 @@ LOGGING = {
 
 AUTH_USER_MODEL = 'registration.User'
 
+PASSWORD_RESET_TIMEOUT = 30 * 60
 
+DOMAIN = 'localhost:8000'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+
+INLINECSS_CSS_LOADER = 'django_inlinecss.css_loaders.StaticfilesFinderCSSLoader'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
