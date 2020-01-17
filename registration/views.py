@@ -47,29 +47,41 @@ class PasswordChangeView(LoginRequiredMixin, View):
     redirect_field_name = 'next'
 
     def get(self, request):
-        return render(request, 'login/password_change.html')
+        return render(request, 'registration/change_password.html')
 
     def post(self, request):
         try:
             old_pass, new_pass, conf_new_pass = request.POST[
-                                                'old'], request.POST['password1'], request.POST['password2']
+                                                    'old'], request.POST['password1'], request.POST['password2']
         except KeyError as e:
-            return render(request, 'login/password_change.html', context={'error': f'Missing field: {e}.'})
+            return render(request, 'registration/change_password.html', context={'error': f'Missing field: {e}.'})
         if request.user.check_password(old_pass):
             if new_pass == conf_new_pass:
                 request.user.set_password(new_pass)
                 return redirect(to="password_change_done")
             else:
                 error = "New passwords do not match."
-                return render(request, 'login/password_change.html', context={'error': error})
+                return render(request, 'registration/change_password.html', context={'error': error})
         else:
             error = "Old password is wrong."
-            return render(request, 'login/password_change.html', context={'error': error})
+            return render(request, 'registration/change_password.html', context={'error': error})
+
+
+class PasswordChangeDoneView(LoginRequiredMixin, View):
+    login_url = '/login'
+    redirect_field_name = 'next'
+
+    def get(self, request):
+        context = {"title": "Password Updated", "heading": "Change Password",
+                   "message": "Password Change Successful",
+                   "redirect": {"url": 'home_page', "text": 'Go back to home.'}}
+        return render(request, 'registration/message.html',
+                      context=context)
 
 
 class PasswordResetView(View):
     def get(self, request):
-        return render(request, 'registration/password_reset_form.html')
+        return render(request, 'registration/forgot_password.html')
 
 
 class PasswordResetDoneView(View):
@@ -80,10 +92,10 @@ class PasswordResetDoneView(View):
             user = User.objects.get(email=email)
         except KeyError as e:
             error = 'Enter email id.'
-            return render(request, 'registration/password_reset_form.html', context={'error': error})
+            return render(request, 'registration/forgot_password.html', context={'error': error})
         except User.DoesNotExist:
             error = 'No account found with that Email-id.'
-            return render(request, 'registration/password_reset_form.html', context={'error': error})
+            return render(request, 'registration/forgot_password.html', context={'error': error})
 
         token = dtg.make_token(user)
         uidb64 = b64_encode(bytes(str(user.pk).encode()))
@@ -99,7 +111,10 @@ class PasswordResetDoneView(View):
             'registration/password_reset_email.html', context=context)
         send_mail("Password Reset", mail_body,
                   [user.email], 'donotreply@example.com')
-        return render(request, 'registration/password_reset_done.html')
+        message = {"title": "Password Reset", "heading": "Email Sent",
+                   "message": "A mail has been changed to your registered email with instructions for resetting your "
+                              "password."}
+        return render(request, 'registration/message.html', context=message)
 
 
 class PasswordResetConfirmView(View):
@@ -111,11 +126,9 @@ class PasswordResetConfirmView(View):
         except:
             return HttpResponse(status=400, content='Bad URL.')
         if dtg.check_token(user, token):
-            return render(request, 'registration/password_reset_confirm.html', context={'uid': uidb64, 'token': token})
+            return render(request, 'registration/reset_password.html', context={'uid': uidb64, 'token': token})
         return HttpResponse(status=400, content='Bad URL.')
 
-
-class PasswordResetCompleteView(View):
     def post(self, request):
         try:
             uidb64 = request.POST['uid']
@@ -138,4 +151,8 @@ class PasswordResetCompleteView(View):
             return HttpResponse(status=400, content="Bad Request.")
 
         user.set_password(password1)
-        return render(request, 'registration/password_reset_complete.html')
+        message = {"title": "Password Reset", "heading": "Password Changed Successfully",
+                   "message": "Your password has been successfully changed. Please Login with your new password.",
+                   "redirect": {"url": "login", "text": "Return to Login Page."}}
+        return render(request, 'registration/message.html', context=message)
+

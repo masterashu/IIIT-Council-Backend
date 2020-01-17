@@ -1,7 +1,7 @@
-{% extends 'base/base.html' %}
+{% extends 'registration/base.html' %}
 {% load static %}
 
-{% block head %}
+{% block title %}
     <title>Login</title>
 {% endblock %}
 
@@ -13,6 +13,9 @@
         <div class="illustration">
             <h3 class="text-left text-heading">Login</h3>
         </div>
+        {% if error %}
+            <small class="form-text text-center text-danger border rounded border-danger" style="margin-bottom: 8px;">{{ error }}</small>
+        {% endif %}
         <div class="form-group">
             <input class="form-control" type="email" name="email" placeholder="Email"/>
         </div>
@@ -24,7 +27,7 @@
                 Log In
             </button>
         </div>
-        <a class="forgot" href="#">Forgot your email or password?</a>
+        <a class="forgot" href="{% url 'password_reset' %}">Forgot your password?</a>
     </form>
 </div>
 {% endblock %}
