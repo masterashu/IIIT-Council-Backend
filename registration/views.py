@@ -112,8 +112,8 @@ class PasswordResetDoneView(View):
         send_mail("Password Reset", mail_body,
                   [user.email], 'donotreply@example.com')
         message = {"title": "Password Reset", "heading": "Email Sent",
-                   "message": "A mail has been changed to your registered email with instructions for resetting your "
-                              "password."}
+                   "message": "A mail has been sent to your registered email"
+                              " with instructions for resetting your password."}
         return render(request, 'registration/message.html', context=message)
 
 
@@ -129,6 +129,8 @@ class PasswordResetConfirmView(View):
             return render(request, 'registration/reset_password.html', context={'uid': uidb64, 'token': token})
         return HttpResponse(status=400, content='Bad URL.')
 
+
+class PasswordResetCompleteView(View):
     def post(self, request):
         try:
             uidb64 = request.POST['uid']
@@ -151,8 +153,8 @@ class PasswordResetConfirmView(View):
             return HttpResponse(status=400, content="Bad Request.")
 
         user.set_password(password1)
+        user.save()
         message = {"title": "Password Reset", "heading": "Password Changed Successfully",
                    "message": "Your password has been successfully changed. Please Login with your new password.",
                    "redirect": {"url": "login", "text": "Return to Login Page."}}
         return render(request, 'registration/message.html', context=message)
-
