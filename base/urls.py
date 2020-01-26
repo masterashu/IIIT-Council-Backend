@@ -16,4 +16,5 @@ urlpatterns = [
   path('forum/', include('base.url.forum')),
   path('administration/', include('base.url.administration')),
   path('admission/', include('base.url.admission')),
+  path('collaboration/', include('base.url.collaboration')),
 ]
