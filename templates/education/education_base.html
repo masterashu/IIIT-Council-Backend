@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/side_nav.css' %}">
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="side">
+                    <div class="block" id="active"><a href="#">B.Tech</a></div>
+                    <div class="block"><a href="#">M.Tech</a></div>
+                    <div class="block"><a href="#">M.S.</a></div>
+                    <div class="block"><a href="#">Ph.D.</a></div>
+                </div>
+            </div>
+            {% block main_content %} {% endblock %}
+        </div>
+    </div>
+{% endblock %}

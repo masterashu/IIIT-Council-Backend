@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from base.views import home_view, about_view, about_iiit_act_view, about_ppp_partners_view, \
   about_system_review_reports_view, about_administrative_structure_view, about_history_view
 
@@ -12,4 +12,5 @@ urlpatterns = [
   path('about/system_review_reports', about_system_review_reports_view,
        name='about_system_review_reports'),
   path('about/ppp_partners', about_ppp_partners_view, name='about_ppp_partners'),
+  path('education/', include('base.url.education')),
 ]
