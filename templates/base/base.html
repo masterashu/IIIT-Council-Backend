@@ -85,10 +85,11 @@
                             Coordination Forum
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Council">
-                            <a class="dropdown-item anchorhover a4" href="#">Chairman</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Secretory</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Members</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Minutes of Meeting</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'forum_chairman' %}">Chairman</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'forum_secretary' %}">Secretory</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'forum_members' %}">Members</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'forum_meeting_minutes' %}">Minutes of
+                                Meeting</a>
                         </div>
                     </li>
 
@@ -98,10 +99,12 @@
                             Research
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Research">
-                            <a class="dropdown-item anchorhover a4" href="#">Projects</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Publications</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Research Facilities</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Patents</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'research_projects' %}">Projects</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'research_publications' %}">Publications</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'research_facilities' %}">Research
+                                Facilities</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'research_patents' %}">Research
+                                Patents</a>
                         </div>
                     </li>
 
@@ -111,9 +114,9 @@
                             Administration
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="People">
-                            <a class="dropdown-item anchorhover a4" href="#">Directors</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Deans</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Registrars</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'admistr_directors' %}">Directors</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'admistr_deans' %}">Deans</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'admistr_registrars' %}">Registrars</a>
                         </div>
                     </li>
 
@@ -123,10 +126,10 @@
                             Education
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Education">
-                            <a class="dropdown-item anchorhover a4" href="#">B. Tech</a>
-                            <a class="dropdown-item anchorhover a4" href="#">M. Tech</a>
-                            <a class="dropdown-item anchorhover a4" href="#">M. S.</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Ph. D.</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'education_b_tech' %}">B. Tech</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'education_m_tech' %}">M. Tech</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'education_m_s' %}">M. S.</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'education_p_hd' %}">Ph. D.</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown mx-2">
@@ -135,9 +138,10 @@
                             Admission
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Administation">
-                            <a class="dropdown-item anchorhover a4" href="#">General Information</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Links</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Entrance Exam</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'admiss_info' %}">General
+                                Information</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'admiss_links' %}">Links</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'admiss_entrance' %}">Entrance Exam</a>
                         </div>
                     </li>
 
@@ -147,8 +151,9 @@
                             Entrepreneurship
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Colloboration">
-                            <a class="dropdown-item anchorhover a4" href="#">E-Cell</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Innovation Center</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'e_cell' %}">E-Cell</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'innovation_centre' %}">Innovation
+                                Center</a>
                         </div>
                     </li>
 
@@ -163,6 +168,7 @@
                         </div>
                     </li>
                     <span class="text-right pull-right navbar-text actions" style="margin-right: 10px;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {% if request.user.is_authenticated %}
                         <a class="login" href="#">Welcome, {{ request.user.first_name }}</a>
                     {% else %}
@@ -178,10 +184,11 @@
 {% block body %} {% endblock %}
 
 <!-- Footer -->
-<footer>
+<footer id="footer_jump">
     <div class="container-fluid text-left">
         <div class="row d12">
-            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 d13"><img class="img2" src="{% static 'img/base/logo.png' %}">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 d13"><img class="img2"
+                                                                        src="{% static 'img/base/logo.png' %}">
                 <h4 class="heading4">Coordination Forum of Indian Institute of Information Technology<br></h4>
                 <p class="p11">Address<br>ABV-Indian Institute of Information Technology and Management<br>Morena Link
                     Road, Gwalior,<br>Madhya Pradesh<br>474015<br>India<br><br>Email - jagdish@iiitm.ac.in<br>Phone -
@@ -204,40 +211,40 @@
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Coordination&nbsp;Forum</span></h5>
                         <p><a class="text-truncate anchor3" href="#">Chairman</a></p>
-                        <p><a href="#" class="anchor3">Secretory</a></p>
-                        <p><a href="#" class="anchor3">Members</a></p>
-                        <p><a href="#" class="anchor3">Minutes of Meeting</a></p>
+                        <p><a href="{% url 'forum_secretary' %}" class="anchor3">Secretory</a></p>
+                        <p><a href="{% url 'forum_chairman' %}" class="anchor3">Members</a></p>
+                        <p><a href="{% url 'forum_meeting_minutes' %}" class="anchor3">Minutes of Meeting</a></p>
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Research</span></h5>
-                        <p><a href="#" class="anchor3">Projects</a></p>
-                        <p><a href="#" class="anchor3">Publications</a></p>
-                        <p><a href="#" class="anchor3">Research Facilities</a></p>
-                        <p><a href="#" class="anchor3">Patents</a></p>
+                        <p><a href="{% url 'research_projects' %}" class="anchor3">Projects</a></p>
+                        <p><a href="{% url 'research_publications' %}" class="anchor3">Publications</a></p>
+                        <p><a href="{% url 'research_facilities' %}" class="anchor3">Research Facilities</a></p>
+                        <p><a href="{% url 'research_patents' %}" class="anchor3">Patents</a></p>
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h5 class="text-truncate heading6"><span class="s6">Administation</span></h5>
-                        <p><a href="#" class="anchor3">Diretors</a></p>
-                        <p><a href="#" class="anchor3">Deans</a></p>
-                        <p><a href="#" class="anchor3">Registrars</a></p>
+                        <h5 class="text-truncate heading6"><span class="s6">Administration</span></h5>
+                        <p><a href="{% url 'admistr_directors' %}" class="anchor3">Directors</a></p>
+                        <p><a href="{% url 'admistr_deans' %}" class="anchor3">Deans</a></p>
+                        <p><a href="{% url 'admistr_registrars' %}" class="anchor3">Registrars</a></p>
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Education</span></h5>
-                        <p><a href="#" class="anchor3">B. Tech</a></p>
-                        <p><a href="#" class="anchor3">M. Tech</a></p>
-                        <p><a href="#" class="anchor3">M. S.</a></p>
-                        <p><a href="#" class="anchor3">Ph. D.</a></p>
+                        <p><a href="{% url 'education_b_tech' %}" class="anchor3">B. Tech</a></p>
+                        <p><a href="{% url 'education_m_tech' %}" class="anchor3">M. Tech</a></p>
+                        <p><a href="{% url 'education_m_s' %}" class="anchor3">M. S.</a></p>
+                        <p><a href="{% url 'education_p_hd' %}" class="anchor3">Ph. D.</a></p>
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Admission</span></h5>
-                        <p><a href="#" class="anchor3">General Information</a></p>
-                        <p><a href="#" class="anchor3">Links</a></p>
-                        <p><a href="#" class="anchor3">Entrance Exam</a></p>
+                        <p><a href="{% url 'admiss_info' %}" class="anchor3">General Information</a></p>
+                        <p><a href="{% url 'admiss_links' %}" class="anchor3">Links</a></p>
+                        <p><a href="{% url 'admiss_entrance' %}" class="anchor3">Entrance Exam</a></p>
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Entrepreneurship</span></h5>
-                        <p><a href="#" class="anchor3">E-Cell</a></p>
-                        <p><a href="#" class="anchor3">Innovation Center</a></p>
+                        <p><a href="{% url 'e_cell' %}" class="anchor3">E-Cell</a></p>
+                        <p><a href="{% url 'innovation_centre' %}" class="anchor3">Innovation Center</a></p>
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Colloboration</span></h5>
@@ -249,7 +256,7 @@
         </div>
     </div>
     <div class="cr">
-        <p class="icr">Copyrights © 2019</p>
+        <p class="icr">Copyrights © 2020</p>
     </div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
