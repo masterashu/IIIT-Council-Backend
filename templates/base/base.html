@@ -163,8 +163,8 @@
                             Colloboration
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Colloboration">
-                            <a class="dropdown-item anchorhover a4" href="#">MoU</a>
-                            <a class="dropdown-item anchorhover a4" href="#">Student Exchange Programmes</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'collab_mou' %}">MoU</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'collab_student_exchange' %}">Student Exchange Programmes</a>
                         </div>
                     </li>
                     <span class="text-right pull-right navbar-text actions" style="margin-right: 10px;">
@@ -248,8 +248,8 @@
                     </div>
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Colloboration</span></h5>
-                        <p><a href="#" class="anchor3">MoU</a></p>
-                        <p><a href="#" class="anchor3">Students Exchange Programmes</a></p>
+                        <p><a href="{% url 'collab_mou' %}" class="anchor3">MoU</a></p>
+                        <p><a href="{% url 'collab_student_exchange' %}" class="anchor3">Students Exchange Programmes</a></p>
                     </div>
                 </div>
             </div>
