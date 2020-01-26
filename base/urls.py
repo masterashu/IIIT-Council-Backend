@@ -13,4 +13,6 @@ urlpatterns = [
        name='about_system_review_reports'),
   path('about/ppp_partners', about_ppp_partners_view, name='about_ppp_partners'),
   path('education/', include('base.url.education')),
+  path('forum/', include('base.url.forum')),
+  path('administration/', include('base.url.administration')),
 ]
