@@ -15,4 +15,7 @@ urlpatterns = [
   path('education/', include('base.url.education')),
   path('entrepreneurship/', include('base.url.entrepreneurship')),
   path('research/', include('base.url.research')),
+  path('forum/', include('base.url.forum')),
+  path('administration/', include('base.url.administration')),
+  path('admission/', include('base.url.admission')),
 ]
