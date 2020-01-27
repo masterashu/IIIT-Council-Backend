@@ -105,3 +105,10 @@ h2 {
   font-size: 2rem;
   margin-top: 10px;
 }
+
+table td a:link {
+  color: #0056b3;
+} 
+table td a:hover {
+  color: #6699ff;
+}
