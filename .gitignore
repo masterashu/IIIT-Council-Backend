@@ -93,3 +93,5 @@ db.sqlite3
 #static files for upload
 
 /static/uploads/*
+
+IIIT-Coordination-Forum-Frontend-master
