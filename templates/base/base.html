@@ -164,16 +164,17 @@
                         </a>
                         <div class="dropdown-menu d3" aria-labelledby="Colloboration">
                             <a class="dropdown-item anchorhover a4" href="{% url 'collab_mou' %}">MoU</a>
-                            <a class="dropdown-item anchorhover a4" href="{% url 'collab_student_exchange' %}">Student Exchange Programmes</a>
+                            <a class="dropdown-item anchorhover a4" href="{% url 'collab_student_exchange' %}">Student
+                                Exchange Programmes</a>
                         </div>
                     </li>
                     <span class="text-right pull-right navbar-text actions" style="margin-right: 10px;">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {% if request.user.is_authenticated %}
-                        <a class="login" href="#">Welcome, {{ request.user.first_name }}</a>
-                    {% else %}
-                        <a class="login" href="{% url 'login' %}"> Log In </a>
-                    {% endif %}
+                        {% if request.user.is_authenticated %}
+                            <a class="login" href="#">Welcome, {{ request.user.first_name }}</a>
+                        {% else %}
+                            <a class="login" href="{% url 'login' %}"> Log In </a>
+                        {% endif %}
                 </span>
             </div>
         </div>
@@ -190,9 +191,10 @@
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 d13"><img class="img2"
                                                                         src="{% static 'img/base/logo.png' %}">
                 <h4 class="heading4">Coordination Forum of Indian Institute of Information Technology<br></h4>
-                <p class="p11">Address<br>ABV-Indian Institute of Information Technology and Management<br>Morena Link
-                    Road, Gwalior,<br>Madhya Pradesh<br>474015<br>India<br><br>Email - jagdish@iiitm.ac.in<br>Phone -
-                    +91-751-2449709<br></p>
+                <p class="p11">Address<br>Institute of Information Technology, Sri City<br>630 Gnan Marg, Sri City,
+                    Satyavedu Mandal<br>Chittoor District, Andhra Pradesh<br>517646<br>India<br><br>Email -
+                    contact@iiits.in<br>Phone -
+                    +91 73064 73364<br></p>
             </div>
             <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 d14">
                 <div class="row text-center align-items-lg-start justify-content-xl-center align-items-xl-start d15">
@@ -249,7 +251,8 @@
                     <div class="text-left col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h5 class="text-truncate heading6"><span class="s6">Colloboration</span></h5>
                         <p><a href="{% url 'collab_mou' %}" class="anchor3">MoU</a></p>
-                        <p><a href="{% url 'collab_student_exchange' %}" class="anchor3">Students Exchange Programmes</a></p>
+                        <p><a href="{% url 'collab_student_exchange' %}" class="anchor3">Students Exchange
+                            Programmes</a></p>
                     </div>
                 </div>
             </div>
